@@ -12,10 +12,21 @@
 Este documento descreve o backend em desenvolvimento, que servirá como base para uma aplicação (possivelmente e-commerce). O projeto utiliza Node.js com o framework Express.js e Sequelize como ORM para interagir com um banco de dados MySQL.
 
 ### 1.1. Autoria e Progresso do Projeto
-* O desenvolvimento do projeto até o estado atual, realizado por **Dani Olivera (GitHub: @daniolivem)**, compreende:
+* O desenvolvimento do projeto realizado por **Daniely Olivera - [@daniolivem](https://github.com/daniolivem)**, compreende:
     * A configuração inicial completa do projeto e do ambiente de desenvolvimento.
-    * A totalidade da **Seção 01 do Escopo do Projeto: Implementar o banco de dados da aplicação** (incluindo a criação de todas as tabelas: `Users`, `Categories`, `Products`, `ProductImages`, `ProductOptions`, `ProductCategories`, seus respectivos modelos Sequelize e relacionamentos).
-    * A totalidade da **Seção 02 do Escopo do Projeto: Implementar endpoints para o CRUD de usuarios** (endpoints `POST /v1/user`, `GET /v1/user/:id`, `PUT /v1/user/:id`, `DELETE /v1/user/:id`).
+    * A totalidade da **Seção 01: Implementar o banco de dados da aplicação** (incluindo a criação de todas as tabelas: `Users`, `Categories`, `Products`, `ProductImages`, `ProductOptions`, `ProductCategories`, seus respectivos modelos Sequelize e relacionamentos).
+    * A totalidade da **Seção 02: Implementar endpoints para o CRUD de usuarios** (endpoints `POST /v1/user`, `GET /v1/user/:id`, `PUT /v1/user/:id`, `DELETE /v1/user/:id`).
+ 
+* O desenvolvimento do projeto realizado por **Ademar Lima** - [@ademar506](https://github.com/ademar506), compreende:
+   
+   
+* O desenvolvimento do projeto realizado por **Anderson Pontes** - [@andersonpontes88](https://github.com/andersonpontes88), compreende:
+   *  A totalidade da **Seção 05: Implementar e validar token JWT**
+       **Requisito 01: `POST /v1/user/token`** (Geração do token JWT)
+    * **Payload:** `{ "email": "...", "password": "..." }`
+    * **Resposta (200 OK):** `{ "token": "<JWT>" }`
+    * **Erro:** `400 Bad Request`.
+        **Requisito 02: Validar token JWT** nos métodos `POST`, `PUT`, e `DELETE` das rotas de Categorias e Produtos, e nas rotas de Atualizar e    Deletar Usuário. Resposta `401 Unauthorized` para token ausente/inválido.
 
 ### 1.2. Tecnologias Principais
 
