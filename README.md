@@ -1,6 +1,4 @@
-Claro! Aqui está o conteúdo do seu README.md, adaptado e formatado para um padrão moderno de projetos Node.js no GitHub, incluindo seções claras, exemplos e instruções para facilitar a leitura e o uso do projeto:
 
----
 
 # GTONLINE2 - Backend
 
@@ -174,6 +172,5 @@ Prefixo das rotas: `/v1/user`
   ```
 - Proteger métodos POST, PUT, DELETE das rotas de categorias, produtos e usuários.
 
----
 
-Se precisar de exemplos de uso das rotas ou detalhes do banco/modelos, é só pedir!
+
