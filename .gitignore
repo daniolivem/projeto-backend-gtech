@@ -1,0 +1,118 @@
+# Arquivos gerados pelo Sistema Operacional
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Arquivos de IDEs e editores
+.idea/
+.vscode/
+*.swp
+*~
+*.sublime-project
+*.sublime-workspace
+*.project
+*.pydevproject
+.project
+.settings/
+.classpath
+
+# Arquivos de build e dependências
+build/
+dist/
+out/
+target/
+node_modules/
+vendor/
+bower_components/
+jspm_packages/
+*.gem
+*.egg
+*.pyc
+*.pyo
+*.o
+*.so
+*.dll
+*.exe
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Arquivos temporários
+tmp/
+temp/
+*.tmp
+*.bak
+*.old
+
+# Arquivos de configuração local (não devem ser versionados)
+.env
+.env.local
+.env.*.local
+config/local.yml
+config/database.yml # Exemplo, se contiver senhas
+
+# Arquivos de teste e cobertura
+coverage/
+.nyc_output/
+*.lcov
+*.gcno
+*.gcda
+.scannerwork/
+
+# Arquivos de pacotes e compressão
+*.tar
+*.gz
+*.zip
+*.rar
+
+# Arquivos específicos de algumas linguagens/frameworks
+# Python
+__pycache__/
+*.Python
+.Python
+env/
+venv/
+ENV/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.hypothesis/
+.pytest_cache/
+celerybeat-schedule
+instance/
+
+# Java
+*.class
+hs_err_pid*
+
+# Node
+.node_repl_history
+
+# Ruby
+.bundle/
+.sass-cache/
+Gemfile.lock
+capybara-*.html
+.rspec
+
+# PHP / Composer
+composer.phar
+composer.lock
+
+# Outros
+.vagrant/
+local_settings.py # Exemplo para Django
+
+# IMPORTANTE: Nunca adicione arquivos com informações sensíveis (senhas, chaves de API)
+# ao repositório. Use variáveis de ambiente ou gerenciadores de segredos.
+# Se você acidentalmente comitou um arquivo sensível, remova-o do histórico do Git.
