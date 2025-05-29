@@ -1,17 +1,23 @@
-// Importa o express pra criar o servidor
-const express = require('express');
-// Carrega as variáveis de ambiente do .env
+// Carrega as variáveis de ambiente do .env (tipo, pega as configs secretas)
 require('dotenv').config();
 
+// Importa o express pra criar o servidor (basicamente o coração da API)
+const express = require('express');
 const app = express();
 
-// Permite receber JSON nas requisições
+// Importa as rotas de usuário (onde ficam as paradas de login, cadastro, etc)
+const userRoutes = require('./routes/userRoutes');
+
+// Middleware pra aceitar JSON nas requisições (senão não rola pegar os dados direito)
 app.use(express.json());
 
-// Rota principal só pra testar se a API tá funcionando
+// Rotas (aqui diz pra onde cada requisição vai)
+app.use('/v1/user', userRoutes);
+
+// Rota principal só pra testar se tá tudo ok (tipo um "oi, tô funcionando")
 app.get('/', (req, res) => {
     res.status(200).send('API Backend está no ar e funcionando!');
 });
 
-// Exporta o app pra usar em outros arquivos (tipo o server.js)
+// Exporta o app pra usar em outros arquivos (tipo no server.js que vai rodar de verdade)
 module.exports = app;
