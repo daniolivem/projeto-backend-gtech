@@ -1,4 +1,6 @@
-// src/controllers/userController.js
+const jwt = require('jsonwebtoken');
+const { User } = require('../models');
+
 const userService = require('../services/userService');
 
 const getUserById = async (req, res) => {
@@ -118,9 +120,53 @@ console.log(`[CONTROLLER] Usuário deletado com sucesso.`);
     }
 };
 
+/**
+ * Autentica o usuário com base nos dados fornecidos, e gera um token JWT.
+ */
+const loginUser = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+
+        // Verifica se o email e a senha foram fornecidos
+        if (!email || !password) {
+            return res.status(400).json({ message: 'Email e senha são obrigatórios.' });
+        }
+
+        // Verifica se o usuário existe no banco de dados
+        const user = await User.findOne({ where: { email} });
+        if (!user) {
+            return res.status(401).json({ message: 'Usuário não encontrado.' });
+        }
+
+        // Verifica se a senha está correta
+        const isPasswordValid = await user.validPassword(password);
+        if (!isPasswordValid) {
+            return res.status(401).json({ message: 'Senha inválida.' });
+        }
+
+        // Gera o token JWT
+        const token = jwt.sign(
+            {userId: user.id, email: user.email},
+            process.env.JWT_SECRET,
+            { expiresIn: process.env.JWT_EXPIRES_IN }
+        )
+
+        // Retorna o token e dados do usuário (omitindo a senha)
+        return res.status(200).json({
+            message: 'Login bem-sucedido',
+            token,
+           
+        })
+    } catch (error) {
+        console.error('Erro no controller ao fazer login:', error);
+        return res.status(500).json({ message: 'Ocorreu um erro interno ao tentar fazer login.' });
+    }
+}
+
 module.exports = {
     getUserById,
     createUser,
     updateUserById,
-    deleteUser
+    deleteUser,
+    loginUser //  Adicionado para exportar a função de login
 };

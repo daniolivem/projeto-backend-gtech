@@ -16,6 +16,14 @@ Este documento descreve o backend em desenvolvimento, que servirá como base par
     * A configuração inicial completa do projeto e do ambiente de desenvolvimento.
     * A totalidade da **Seção 01 do Escopo do Projeto: Implementar o banco de dados da aplicação** (incluindo a criação de todas as tabelas: `Users`, `Categories`, `Products`, `ProductImages`, `ProductOptions`, `ProductCategories`, seus respectivos modelos Sequelize e relacionamentos).
     * A totalidade da **Seção 02 do Escopo do Projeto: Implementar endpoints para o CRUD de usuarios** (endpoints `POST /v1/user`, `GET /v1/user/:id`, `PUT /v1/user/:id`, `DELETE /v1/user/:id`).
+* Seção 05 - Implementar e validar token JWT - estado atual, realizado por **Anderson Pontes (GitHub: @andersonpontes88)**:
+    * Criação do Middleware de Autenticação (middleware/authMiddleware.js).
+    * Criação do endpoint de login (POST /v1/token)
+    * Implementação para gerar o token JWT ao fazer login, incluindo validação do token JWT em rotas protegidas.
+    * Expiração do token JWT após 1 dia.
+    * Autenticação para rotas PUT e DELETE, em deletar ou atualizar usuários.
+    * Criado o loginUser no controller para autenticar e gerar o token JWT com base nos dados fornecidos pelo usuário.
+    
 
 ### 1.2. Tecnologias Principais
 

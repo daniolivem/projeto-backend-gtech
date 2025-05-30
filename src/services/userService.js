@@ -2,8 +2,9 @@ const { User } = require('../models'); // Importa o model User do Sequelize
 
 
 /**
-@param {object} userData
-@returns {Promise<User>}
+ * Cria um novo usuário.
+@param {object} userData - Dados do usuário a ser criado.
+@returns {Promise<User>} - Usuário criado.
 */
 const createUser = async (userData) => {
     try {
@@ -12,7 +13,7 @@ const createUser = async (userData) => {
     } catch (error) {
         if (error.name === 'SequelizeValidationError') {
             const erros = error.errors.map(err => err({ message: err.message, field: err.path }));
-            throw { type: 'ValidationError', errors };
+            throw { type: 'ValidationError', erros };
         }
         console.error('Erro no serviço de criação de usuário:', error);
         throw error;
@@ -38,9 +39,9 @@ const findUserById = async (id) => {
 };
 
 /**
- @param {number} id
- @param {object} updateData
- @returns {Promise<User|null|false>}
+ @param {number} id - O ID do usuário a ser atualizado.
+ @param {object} updateData - Os dados atualizados do usuário.
+ @returns {Promise<User|null|false>} - Usuário atualizado ou null se não encontrado, ou false em caso de erro.
 */
 
 const updateUserById = async (id, updateData) => {
