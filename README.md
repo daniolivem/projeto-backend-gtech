@@ -12,10 +12,14 @@
 Este documento descreve o backend em desenvolvimento, que servirá como base para uma aplicação (possivelmente e-commerce). O projeto utiliza Node.js com o framework Express.js e Sequelize como ORM para interagir com um banco de dados MySQL.
 
 ### 1.1. Autoria e Progresso do Projeto
-* O desenvolvimento do projeto até o estado atual, realizado por **Dani Olivera (GitHub: @daniolivem)**, compreende:
+* O desenvolvimento do projeto realizado por **Daniely Olivera - [@daniolivem](https://github.com/daniolivem)**, compreende:
     * A configuração inicial completa do projeto e do ambiente de desenvolvimento.
-    * A totalidade da **Seção 01 do Escopo do Projeto: Implementar o banco de dados da aplicação** (incluindo a criação de todas as tabelas: `Users`, `Categories`, `Products`, `ProductImages`, `ProductOptions`, `ProductCategories`, seus respectivos modelos Sequelize e relacionamentos).
-    * A totalidade da **Seção 02 do Escopo do Projeto: Implementar endpoints para o CRUD de usuarios** (endpoints `POST /v1/user`, `GET /v1/user/:id`, `PUT /v1/user/:id`, `DELETE /v1/user/:id`).
+    * A totalidade da **Seção 01: Implementar o banco de dados da aplicação** (incluindo a criação de todas as tabelas: `Users`, `Categories`, `Products`, `ProductImages`, `ProductOptions`, `ProductCategories`, seus respectivos modelos Sequelize e relacionamentos).
+    * A totalidade da **Seção 02: Implementar endpoints para o CRUD de usuarios** (endpoints `POST /v1/user`, `GET /v1/user/:id`, `PUT /v1/user/:id`, `DELETE /v1/user/:id`).
+ 
+* O desenvolvimento do projeto realizado por **Ademar Lima** - [@ademar506](https://github.com/ademar506), compreende:
+   
+    
 * Seção 05 - Implementar e validar token JWT - estado atual, realizado por **Anderson Pontes (GitHub: @andersonpontes88)**:
     * Criação do Middleware de Autenticação (middleware/authMiddleware.js).
     * Criação do endpoint de login (POST /v1/token)
