@@ -20,7 +20,7 @@ Este documento descreve o backend em desenvolvimento, que servirá como base par
 * O desenvolvimento do projeto realizado por **Ademar Lima** - [@ademar506](https://github.com/ademar506), compreende:
 * Seção 04 - Implementar endpoints para o CRUD de Produtos;
     
-* Seção 05 - Implementar e validar token JWT - estado atual, realizado por **Anderson Pontes (GitHub: @andersonpontes88)**:
+* Seção 05 - Implementar e validar token JWT - estado atual, realizado por **Anderson Pontes - [@andersonpontes88](https://github.com/andersonpontes88)**:
     * Criação do Middleware de Autenticação (middleware/authMiddleware.js).
     * Criação do endpoint de login (POST /v1/token)
     * Implementação para gerar o token JWT ao fazer login, incluindo validação do token JWT em rotas protegidas.
