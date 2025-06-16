@@ -5,10 +5,7 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class ProductCategory extends Model {
     static associate(models) {
-      // Opcionalmente, você pode definir as associações belongsTo aqui também,
-      // se precisar acessar Product ou Category diretamente a partir de uma instância de ProductCategory.
-      // ProductCategory.belongsTo(models.Product, { foreignKey: 'product_id' });
-      // ProductCategory.belongsTo(models.Category, { foreignKey: 'category_id' });
+    
     }
   }
   ProductCategory.init({
