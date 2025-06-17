@@ -1,5 +1,5 @@
 
-# Documentação do Projeto Backend (GTONLINE2)
+# Projeto Backend (GTONLINE2)
 
 **Data da Documentação:** 29 de Maio de 2025
 
