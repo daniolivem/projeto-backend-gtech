@@ -14,11 +14,11 @@ Este documento descreve o backend em desenvolvimento, que servirá como base par
 ### 1.1. Autoria e Progresso do Projeto
 * O desenvolvimento do projeto realizado por **Daniely Olivera - [@daniolivem](https://github.com/daniolivem)**, compreende:
     * A configuração inicial completa do projeto e do ambiente de desenvolvimento.
-    * A totalidade da **Seção 01: Implementar o banco de dados da aplicação** (incluindo a criação de todas as tabelas: `Users`, `Categories`, `Products`, `ProductImages`, `ProductOptions`, `ProductCategories`, seus respectivos modelos Sequelize e relacionamentos).
-    * A totalidade da **Seção 02: Implementar endpoints para o CRUD de usuarios** (endpoints `POST /v1/user`, `GET /v1/user/:id`, `PUT /v1/user/:id`, `DELETE /v1/user/:id`).
-    * A totalidade da **Seção 03: Implementar endpoints para o CRUD de categorias** (endpoints `POST /v1/category`, `GET /v1/category/:id`, `PUT /v1/category/:id`, `DELETE /v1/category/:id`).
+    * **Seção 01: Implementar o banco de dados da aplicação** (incluindo a criação de todas as tabelas: `Users`, `Categories`, `Products`, `ProductImages`, `ProductOptions`, `ProductCategories`, seus respectivos modelos Sequelize e relacionamentos).
+    * **Seção 02: Implementar endpoints para o CRUD de usuarios** (endpoints `POST /v1/user`, `GET /v1/user/:id`, `PUT /v1/user/:id`, `DELETE /v1/user/:id`).
+    * **Seção 03: Implementar endpoints para o CRUD de categorias** (endpoints `POST /v1/category`, `GET /v1/category/:id`, `PUT /v1/category/:id`, `DELETE /v1/category/:id` e `GET /v1/category/search`). 
  
-* O desenvolvimento do projeto realizado por **Ademar Lima** - [@ademar506](https://github.com/ademar506), compreende:
+* O desenvolvimento do projeto realizado por **Ademar Lima - [@ademar506](https://github.com/ademar506)**, compreende:
 * Seção 04 - Implementar endpoints para o CRUD de Produtos;
     
 * Seção 05 - Implementar e validar token JWT - estado atual, realizado por **Anderson Pontes - [@andersonpontes88](https://github.com/andersonpontes88)**:

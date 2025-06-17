@@ -1,32 +1,23 @@
-// src/models/product.js
+
 'use strict';
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class Product extends Model {
-    /**
-     * Aqui você pode definir as associações desse modelo com outros.
-     * O Sequelize chama esse método automaticamente.
-     * Exemplo de uso:
-     * Product.belongsToMany(models.Category, { through: 'ProductCategories', foreignKey: 'product_id', as: 'categories' });
-     * Product.hasMany(models.ProductImage, { foreignKey: 'product_id', as: 'images' });
-     * Product.hasMany(models.ProductOption, { foreignKey: 'product_id', as: 'options' });
-     */
     static associate(models) {
-      // Associações vão aqui no futuro
       Product.hasMany(models.ProductImage, {
-        foreignKey: 'product_id', // Chave estrangeira na tabela ProductImage
-        as: 'images'            // Alias para acessar as imagens (ex: product.getImages())
+        foreignKey: 'product_id',
+ as: 'images'
       });
       Product.hasMany(models.ProductOption, {
         foreignKey: 'product_id',
-        as: 'options' // Alias para acessar as opções (ex: product.getOptions())
+ as: 'options'
       });
       Product.belongsToMany(models.Category, {
-        through: models.ProductCategory, // Modelo da tabela de junção
-        foreignKey: 'product_id',      // Chave em ProductCategory que se refere a Product
-        otherKey: 'category_id',       // Chave em ProductCategory que se refere a Category
-        as: 'categories'               // Alias para acessar as categorias do produto
+ through: models.ProductCategory,
+ foreignKey: 'product_id',
+ otherKey: 'category_id',
+ as: 'categories'
       });
     }
   }
@@ -75,7 +66,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     description: {
       type: DataTypes.TEXT,
-      allowNull: true // Pode ser nulo, então não precisa se preocupar se está vazio
+      allowNull: true
     },
     price: {
       type: DataTypes.FLOAT,
@@ -83,7 +74,7 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         isFloat: { msg: 'O preço tem que ser um número.' },
         notNull: { msg: 'O preço é obrigatório.' }, // notEmpty não faz sentido pra número, melhor usar notNull
-        min: { args: [0], msg: 'O preço não pode ser negativo.' }
+ min: { args: [0], msg: 'O preço não pode ser negativo.' }
       }
     },
     price_with_discount: {
@@ -92,9 +83,6 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         isFloat: { msg: 'O preço com desconto tem que ser um número.' },
         notNull: { msg: 'O preço com desconto é obrigatório.' },
-        min: { args: [0], msg: 'O preço com desconto não pode ser negativo.' },
-        // Se quiser, dá pra colocar uma validação aqui pra garantir que
-        // price_with_discount <= price, se fizer sentido pra você.
       }
     }
   }, {

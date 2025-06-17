@@ -100,7 +100,7 @@ const deleteUser = async (req, res) => {
     if (!wasDeleted) {
         console.log(`[CONTROLLER] Usuário não encontrado para deleção (serviço retornou false).`);
         return res.status(404).json({ message: 'Usuário não encontrado para deleção.' });
-    } 
+    }
 console.log(`[CONTROLLER] Usuário deletado com sucesso.`);
         return res.status(204).send(); // Mantido 204 conforme escopo do projeto
         
@@ -155,7 +155,6 @@ const loginUser = async (req, res) => {
         return res.status(200).json({
             message: 'Login bem-sucedido',
             token,
-           
         })
     } catch (error) {
         console.error('Erro no controller ao fazer login:', error);
