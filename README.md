@@ -3,6 +3,7 @@
 
 **Data da Documentação:** 29 de Maio de 2025
 
+
 **Estado do Projeto:**
 * Configuração inicial e esquema completo do banco de dados (Seção 01 do escopo) implementados.
 * Endpoints da API para CRUD de Usuários (Seção 02 do escopo) implementados e testados.
@@ -10,38 +11,46 @@
 ## 1. Visão Geral do Projeto
 
 Este documento descreve o backend em desenvolvimento, que servirá como base para uma aplicação (possivelmente e-commerce). O projeto utiliza Node.js com o framework Express.js e Sequelize como ORM para interagir com um banco de dados MySQL.
+## 👥 Integrantes e Contribuições
 
-### 1.1. Autoria e Progresso do Projeto
-* O desenvolvimento do projeto realizado por **Daniely Olivera - [@daniolivem](https://github.com/daniolivem)**, compreende:
-    * A configuração inicial completa do projeto e do ambiente de desenvolvimento.
-    * **Seção 01: Implementar o banco de dados da aplicação** (incluindo a criação de todas as tabelas: `Users`, `Categories`, `Products`, `ProductImages`, `ProductOptions`, `ProductCategories`, seus respectivos modelos Sequelize e relacionamentos).
-    * **Seção 02: Implementar endpoints para o CRUD de usuarios** (endpoints `POST /v1/user`, `GET /v1/user/:id`, `PUT /v1/user/:id`, `DELETE /v1/user/:id`).
-    * **Seção 03: Implementar endpoints para o CRUD de categorias** (endpoints `POST /v1/category`, `GET /v1/category/:id`, `PUT /v1/category/:id`, `DELETE /v1/category/:id` e `GET /v1/category/search`). 
+| Nome              | GitHub                                                                                       | Principais Contribuições                                                 |
+| ----------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| **Daniely Olivera** | [![GitHub](https://img.shields.io/badge/GitHub-daniolivem-181717?style=flat&logo=github)](https://github.com/daniolivem)         | Configuração inicial, Banco de Dados, CRUD de Usuários e Categorias      |
+| **Ademar Lima** | [![GitHub](https://img.shields.io/badge/GitHub-ademar506-181717?style=flat&logo=github)](https://github.com/ademar506)           | CRUD de Produtos (em andamento)                                          |
+| **Anderson Pontes** | [![GitHub](https://img.shields.io/badge/GitHub-andersonpontes88-181717?style=flat&logo=github)](https://github.com/andersonpontes88) | Middleware de Autenticação e implementação do Token JWT                  |
  
-* O desenvolvimento do projeto realizado por **Ademar Lima - [@ademar506](https://github.com/ademar506)**, compreende:
-* Seção 04 - Implementar endpoints para o CRUD de Produtos;
-    
-* Seção 05 - Implementar e validar token JWT - estado atual, realizado por **Anderson Pontes - [@andersonpontes88](https://github.com/andersonpontes88)**:
-    * Criação do Middleware de Autenticação (middleware/authMiddleware.js).
-    * Criação do endpoint de login (POST /v1/token)
+> Para ver as estatísticas detalhadas de commits, acesse: **[Contributors Graph](https://github.com/daniolivem/projeto-backend-gtech/graphs/contributors)**
+
+### Detalhamento das Contribuições
+
+* **Daniely Olivera**
+    * Configuração inicial do projeto e ambiente de desenvolvimento.
+    * Implementação do banco de dados e modelos Sequelize (`Users`, `Categories`, `Products`, `ProductImages`, `ProductOptions`, `ProductCategories`).
+    * CRUD de usuários (`POST /v1/user`, `GET /v1/user/:id`, `PUT /v1/user/:id`, `DELETE /v1/user/:id`).
+    * CRUD de categorias (`POST /v1/category`, `GET /v1/category/:id`, `PUT /v1/category/:id`, `DELETE /v1/category/:id`, `GET /v1/category/search`).
+
+* **Ademar Lima**
+    * CRUD de Produtos (Seção em andamento).
+
+* **Anderson Pontes** 
+    * Criação do Middleware de Autenticação (`middleware/authMiddleware.js`).
+    * Criação do endpoint de login (`POST /v1/user/token`).
     * Implementação para gerar o token JWT ao fazer login, incluindo validação do token JWT em rotas protegidas.
     * Expiração do token JWT após 1 dia.
-    * Autenticação para rotas PUT e DELETE, em deletar ou atualizar usuários.
-    * Criado o loginUser no controller para autenticar e gerar o token JWT com base nos dados fornecidos pelo usuário.
-    
+    * Aplicação da autenticação para rotas `PUT` e `DELETE` de Usuários e `POST`, `PUT`, `DELETE` de Categorias.
 
-### 1.2. Tecnologias Principais
+---
+## 🛠️ Tecnologias Utilizadas
 
-* **Node.js**: Ambiente de execução JavaScript no servidor.
-* **Express.js**: Framework para criação de rotas e APIs.
-* **Dotenv**: Gerenciamento de variáveis de ambiente.
-* **Nodemon**: Monitoramento de alterações para reiniciar o servidor em desenvolvimento.
-* **MySQL**: Sistema de gerenciamento de banco de dados relacional.
-* **Sequelize**: ORM para Node.js.
-* **bcryptjs**: Biblioteca para hashing de senhas.
-* **jsonwebtoken (JWT)**: Para implementação de autenticação baseada em token.
-* **Jest**: Framework de testes.
-* **Sequelize-CLI**: Ferramenta de linha de comando para Sequelize.
+![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white&style=flat-square)
+![Express.js](https://img.shields.io/badge/Express.js-000000?logo=express&logoColor=white&style=flat-square)
+![MySQL](https://img.shields.io/badge/MySQL-00758F?logo=mysql&logoColor=white&style=flat-square)
+![Sequelize](https://img.shields.io/badge/Sequelize-52b0e7?logo=sequelize&logoColor=white&style=flat-square)
+![JWT](https://img.shields.io/badge/JWT-000000?logo=jsonwebtokens&logoColor=white&style=flat-square)
+![Jest](https://img.shields.io/badge/Jest-C21325?logo=jest&logoColor=white&style=flat-square)
+![bcryptjs](https://img.shields.io/badge/bcryptjs-004289?style=flat-square)
+![Dotenv](https://img.shields.io/badge/dotenv-8DD6F9?logo=dotenv&logoColor=black&style=flat-square)
+![Nodemon](https://img.shields.io/badge/Nodemon-76D04B?logo=nodemon&logoColor=white&style=flat-square)
 
 ---
 ## 2. Configuração do Ambiente de Desenvolvimento
