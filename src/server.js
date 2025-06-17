@@ -1,4 +1,3 @@
-// Changed to CommonJS import to match app.js
 const app = require('./app.js');
 
 const PORT = process.env.APP_PORT || 3000;

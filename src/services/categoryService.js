@@ -1,4 +1,3 @@
-// src/services/categoryService.js
 const { Category } = require('../models');
 
 /**
@@ -25,7 +24,7 @@ const createCategory = async (categoryData) => {
  * @param {number} id - O ID da categoria.
  * @returns {Promise<Category|null>} O objeto da categoria ou null se não for encontrada.
  */
-const findCategoryById = async (id) => {
+const getCategoryById = async (id) => {
     try {
         const category = await Category.findByPk(id);
  return category;
@@ -83,7 +82,7 @@ const deleteCategoryById = async (id) => {
  * @param {object} options - Opções de consulta para a busca.
  * @returns {Promise<{count: number, rows: Category[]}>} Objeto com a contagem total e as linhas encontradas.
  */
-const findAllCategories = async (options) => {
+const getAllCategories = async (options) => {
     try {
         const categories = await Category.findAndCountAll(options);
         return categories;
@@ -95,8 +94,8 @@ const findAllCategories = async (options) => {
 
 module.exports = {
     createCategory,
-    findCategoryById, // Renomeado para consistência
+    getCategoryById, // Renomeado para consistência
     updateCategoryById,
     deleteCategoryById,
-    findAllCategories, // Renomeado para consistência
+    getAllCategories, // Renomeado para consistência
 };
