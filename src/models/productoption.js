@@ -1,11 +1,9 @@
-// src/models/productoption.js
 'use strict';
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class ProductOption extends Model {
     static associate(models) {
-      // ProductOption pertence a Product
       ProductOption.belongsTo(models.Product, {
         foreignKey: 'product_id',
         as: 'product',
@@ -15,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   ProductOption.init({
-    product_id: { // Definido aqui para clareza, mas gerenciado pela associação
+    product_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
@@ -63,18 +61,6 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: { msg: 'O campo "values" não pode ser vazio.' }
       }
-      // Getter e Setter para lidar com a string de valores como um array (opcional avançado)
-      // get() {
-      //   const rawValue = this.getDataValue('values');
-      //   return rawValue ? rawValue.split(',') : [];
-      // },
-      // set(value) {
-      //   if (Array.isArray(value)) {
-      //     this.setDataValue('values', value.join(','));
-      //   } else {
-      //     this.setDataValue('values', value);
-      //   }
-      // }
     }
   }, {
     sequelize,
