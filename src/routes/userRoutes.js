@@ -4,7 +4,7 @@ const userController = require('../controllers/userController');
 const authMiddleware = require('../middleware/authMiddleware');
 
 // Rota pública: gerar token JWT
-router.post('/token', userController.loginUser); 
+router.post('/token', userController.loginUser);
 
 // Rota pública: cadastrar usuário e buscar usuário por ID
 router.post('/', userController.createUser);

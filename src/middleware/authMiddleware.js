@@ -9,34 +9,34 @@ const authMiddleware = (req, res, next) => {
   const authHeader = req.headers.authorization;
 
   // Só aplica a validação se for uma rota que requer autenticação (POST, PUT, DELETE)
- const method = req.method.toUpperCase();
- if (['POST', 'PUT', 'DELETE'].includes(method)) {
-    const authHeader = req.headers.authorization;
-if (!authHeader || !authHeader.startsWith('Bearer ')) {
-    return res.status(400).json({ message: 'Token de autenticação ausente ou inválido.' });
-  }
+  const method = req.method.toUpperCase();
+    if (['POST', 'PUT', 'DELETE'].includes(method)) {
+      const authHeader = req.headers.authorization;
 
-  // Extrai o token JWT do cabeçalho
-  const token = authHeader.split(' ')[1];
+      if (!authHeader || !authHeader.startsWith('Bearer ')) {
+        return res.status(400).json({ message: 'Token de autenticação ausente ou inválido.' });
+      }
 
-  try {
-    // Verificar e decodificar o token JWT
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-  
-    // Armazenar informações do usuário no req.user para uso futuro
-    req.user = decoded;
-    next();
-  } catch (error) {
-    console.error('Erro na autenticação JWT:', error);
-    return res.status(400).json({ message: 'Token de autenticação inválido ou expirado.' });
-  }
+      // Extrai o token JWT do cabeçalho
+      const token = authHeader.split(' ')[1];
 
-  } else {
-    // Se não for uma rota que requer autenticação, apenas continue para o 
-    // próximo middleware ou rota (rota do tip GET ou outra método)
-    next();
+      try {
+        // Verificar e decodificar o token JWT
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    
+        // Armazenar informações do usuário no req.user para uso futuro
+        req.user = decoded;
+        next();
+      } catch (error) {
+        console.error('Erro na autenticação JWT:', error);
+        return res.status(401).json({ message: 'Token de autenticação inválido ou expirado.' });
+      }
+    } else {
+      // Se não for uma rota que requer autenticação, apenas continue para o 
+      // próximo middleware ou rota (rota do tip GET ou outra método)
+      next();
+    }
   }
-}
 
 module.exports = authMiddleware;
 
