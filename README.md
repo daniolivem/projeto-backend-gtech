@@ -1,22 +1,30 @@
-
 # Projeto Backend (GTONLINE2)
 
-**Data da Documentação:** 29 de Maio de 2025
+**Data da Documentação:** 23 de junho de 2025
 
 **Estado do Projeto:**
-* Configuração inicial e esquema completo do banco de dados (Seção 01 do escopo) implementados.
-* Endpoints da API para CRUD de Usuários (Seção 02 do escopo) implementados e testados.
+* Projeto concluído: todas as funcionalidades previstas no escopo do reposítório da Digital College foram implementadas e testadas.
 
 ## 1. Visão Geral do Projeto
 
-Este documento descreve o backend em desenvolvimento, que servirá como base para uma aplicação (possivelmente e-commerce). O projeto utiliza Node.js com o framework Express.js e Sequelize como ORM para interagir com um banco de dados MySQL.
+Este documento descreve o backend finalizado, que serve como base para uma aplicação de e-commerce. O projeto utiliza Node.js com o framework Express.js e Sequelize como ORM para interagir com um banco de dados MySQL.
+
+---
+
+## 📄 Documentação Interativa (Postman)
+
+Acesse a documentação interativa e exemplos de uso dos endpoints diretamente no Postman:
+
+[https://documenter.getpostman.com/view/45341254/2sB2xCh9ee](https://documenter.getpostman.com/view/45341254/2sB2xCh9ee)
+
+---
 
 ## 👥 Integrantes e Contribuições
 
 | Nome                | GitHub                                                                                                 | Principais Contribuições                                               |
 | ------------------- | ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------- |
 | **Daniely Olivera** | [![GitHub](https://img.shields.io/badge/GitHub-daniolivem-181717?style=flat&logo=github)](https://github.com/daniolivem) | Configuração inicial, Banco de Dados, CRUD de Usuários e Categorias    |
-| **Ademar Lima**     | [![GitHub](https://img.shields.io/badge/GitHub-ademar506-181717?style=flat&logo=github)](https://github.com/ademar506)   | CRUD de Produtos (em andamento)                                        |
+| **Ademar Lima**     | [![GitHub](https://img.shields.io/badge/GitHub-ademar506-181717?style=flat&logo=github)](https://github.com/ademar506)   | CRUD de Produtos                                                      |
 | **Anderson Pontes** | [![GitHub](https://img.shields.io/badge/GitHub-andersonpontes88-181717?style=flat&logo=github)](https://github.com/andersonpontes88) | Middleware de Autenticação e implementação do Token JWT                |
 
 > Para ver as estatísticas detalhadas de commits, acesse: **[Contributors Graph](https://github.com/daniolivem/projeto-backend-gtech/graphs/contributors)**
@@ -30,7 +38,7 @@ Este documento descreve o backend em desenvolvimento, que servirá como base par
   * CRUD de categorias (`POST /v1/category`, `GET /v1/category/:id`, `PUT /v1/category/:id`, `DELETE /v1/category/:id`, `GET /v1/category/search`).
 
 * **Ademar Lima**
-  * CRUD de Produtos (Seção em andamento).
+  * CRUD de Produtos.
 
 * **Anderson Pontes** 
   * Criação do Middleware de Autenticação (`middleware/authMiddleware.js`).
@@ -129,7 +137,7 @@ project-root/
 
 ## 4. Esquema do Banco de Dados (MySQL com Sequelize)
 
-O banco de dados foi implementado conforme a Seção 01 do escopo do projeto, utilizando Sequelize. As tabelas criadas incluem:
+O banco de dados foi implementado conforme o escopo do projeto, utilizando Sequelize. As tabelas criadas incluem:
 * `Users`
 * `Categories`
 * `Products`
@@ -158,115 +166,8 @@ Para cada tabela do banco de dados, um modelo Sequelize correspondente foi criad
 
 ---
 
-## 6. Endpoints da API Implementados (Seção 02 do Escopo - CRUD de Usuários)
+## 6. Endpoints da API Implementados
 
-Os seguintes endpoints para o gerenciamento de usuários foram implementados e testados. Todas as rotas de usuário estão prefixadas com `/v1/user`.
-
-### 6.1. Criar Novo Usuário
-* **Endpoint:** `POST /v1/user`
-* **Descrição:** Cadastra um novo usuário no sistema.
-* **Corpo da Requisição (Payload):**
-  ```json
-  {
-    "firstname": "Nome",
-    "surname": "Sobrenome",
-    "email": "usuario@example.com",
-    "password": "senhaSegura123",
-    "confirmPassword": "senhaSegura123"
-  }
-  ```
-* **Resposta de Sucesso:**
-    * **Status:** `201 Created`
-    * **Corpo:** JSON com os dados do usuário criado (excluindo a senha).
-* **Respostas de Erro Comuns:**
-    * `400 Bad Request`: Campos faltando, senhas não coincidem, email já existe, ou outras falhas de validação.
-
-### 6.2. Obter Informações do Usuário pelo ID
-* **Endpoint:** `GET /v1/user/:id`
-* **Descrição:** Retorna os dados de um usuário específico.
-* **Resposta de Sucesso:**
-    * **Status:** `200 OK`
-    * **Corpo:** JSON com os dados do usuário (excluindo a senha).
-* **Respostas de Erro Comuns:**
-    * `400 Bad Request`: Se o ID fornecido for inválido.
-    * `404 Not Found`: Se o usuário com o ID especificado não for encontrado.
-
-### 6.3. Atualizar Usuário
-* **Endpoint:** `PUT /v1/user/:id`
-* **Descrição:** Atualiza os dados de um usuário existente (não atualiza a senha por este endpoint).
-* **Corpo da Requisição (Payload):**
-  ```json
-  {
-    "firstname": "Novo Nome",
-    "surname": "Novo Sobrenome",
-    "email": "novo.email@example.com"
-  }
-  ```
-* **Resposta de Sucesso:**
-    * **Status:** `204 No Content`
-* **Respostas de Erro Comuns:**
-    * `400 Bad Request`: ID inválido, nenhum dado fornecido para atualização, ou falha de validação.
-    * `404 Not Found`: Usuário não encontrado.
-
-### 6.4. Deletar Usuário
-* **Endpoint:** `DELETE /v1/user/:id`
-* **Descrição:** Remove um usuário do sistema.
-* **Resposta de Sucesso:**
-    * **Status:** `204 No Content`
-* **Respostas de Erro Comuns:**
-    * `400 Bad Request`: ID inválido.
-    * `404 Not Found`: Usuário não encontrado.
-
-*(Nota: A autenticação JWT e o status `401 Unauthorized` para endpoints protegidos serão implementados em uma seção futura).*
+Todos os endpoints previstos no escopo foram implementados e testados, incluindo autenticação, CRUD de usuários, categorias e produtos. Para exemplos detalhados de uso, consulte a documentação interativa do Postman.
 
 ---
-
-## 7. Próximos Passos (Para Concluir o Projeto)
-
-Com o CRUD de Usuários concluído, as próximas seções principais do projeto, conforme o escopo original, são:
-
-### 7.1. Seção 03 - Implementar endpoints para o CRUD de Categorias
-* **Requisito 01: `GET /v1/category/search`** (Obter lista de categorias)
-    * **Query Params:** `limit`, `page`, `fields`, `use_in_menu`.
-    * **Resposta (200 OK):** JSON com `data`, `total`, `limit`, `page`.
-* **Requisito 02: `GET /v1/category/:id`** (Obter categoria pelo ID)
-    * **Resposta (200 OK):** JSON com dados da categoria.
-    * **Erro:** `404 Not Found`.
-* **Requisito 03: `POST /v1/category`** (Cadastro de categoria)
-    * **Payload:** `{ "name": "...", "slug": "...", "use_in_menu": true/false }`
-    * **Resposta (201 Created):** JSON com dados da categoria criada.
-    * **Erros:** `400 Bad Request`.
-* **Requisito 04: `PUT /v1/category/:id`** (Atualização de categoria)
-    * **Payload:** `{ "name": "...", "slug": "...", "use_in_menu": true/false }`
-    * **Resposta (204 No Content)**.
-    * **Erros:** `400 Bad Request`, `404 Not Found`.
-* **Requisito 05: `DELETE /v1/category/:id`** (Deletar categoria)
-    * **Resposta (204 No Content)**.
-    * **Erros:** `404 Not Found`.
-
-### 7.2. Seção 04 - Implementar endpoints para o CRUD de Produtos
-* **Requisito 01: `GET /v1/product/search`** (Obter lista de produtos)
-    * **Query Params:** `limit`, `page`, `fields`, `match`, `category_ids`, `price-range`, `option[id_da_opcao]`.
-    * **Resposta (200 OK):** JSON com `data` (incluindo `images` e `options`), `total`, `limit`, `page`.
-* **Requisito 02: `GET /v1/product/:id`** (Obter produto pelo ID)
-    * **Resposta (200 OK):** JSON com dados detalhados do produto.
-    * **Erro:** `404 Not Found`.
-* **Requisito 03: `POST /v1/product`** (Criação de produto)
-    * **Payload Complexo:** Incluindo dados básicos, `category_ids`, `images` (base64), `options`.
-    * **Resposta (201 Created):** JSON com dados do produto criado.
-    * **Erros:** `400 Bad Request`.
-* **Requisito 04: `PUT /v1/product/:id`** (Atualização de produto)
-    * **Payload Complexo:** Similar ao POST, com tratamento para atualização/deleção de `images` e `options`.
-    * **Resposta (204 No Content)**.
-    * **Erros:** `400 Bad Request`, `404 Not Found`.
-* **Requisito 05: `DELETE /v1/product/:id`** (Deletar produto)
-    * **Resposta (204 No Content)**.
-    * **Erros:** `404 Not Found`.
-
-### 7.3. Seção 05 - Implementar e validar token JWT
-* **Requisito 01: `POST /v1/user/token`** (Geração do token JWT)
-    * **Payload:** `{ "email": "...", "password": "..." }`
-    * **Resposta (200 OK):** `{ "token": "<JWT>" }`
-    * **Erro:** `400 Bad Request`.
-* **Requisito 02: Validar token JWT** nos métodos `POST`, `PUT`, e `DELETE` das rotas de Categorias e Produtos, e nas rotas de Atualizar e Deletar Usuário. Resposta `401 Unauthorized` para token ausente/inválido.
-```
