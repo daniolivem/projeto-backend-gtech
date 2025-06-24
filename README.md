@@ -171,3 +171,6 @@ Para cada tabela do banco de dados, um modelo Sequelize correspondente foi criad
 Todos os endpoints previstos no escopo foram implementados e testados, incluindo autenticação, CRUD de usuários, categorias e produtos. Para exemplos detalhados de uso, consulte a documentação interativa do Postman.
 
 ---
+## Licença
+
+Este projeto está licenciado sob a Licença MIT - consulte o arquivo [LICENSE](LICENSE) para detalhes.
